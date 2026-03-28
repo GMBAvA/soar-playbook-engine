@@ -1,3 +1,4 @@
+![CI](https://github.com/GMBAvA/soar-playbook-engine/actions/workflows/ci.yml/badge.svg)
 # SOAR Playbook Engine 🛡️
 
 A lightweight Python-based SOAR (Security Orchestration, Automation and Response) engine
