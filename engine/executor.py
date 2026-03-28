@@ -23,12 +23,16 @@ def execute_playbook(playbook: dict, context: dict) -> list:
 
         logger.info(f"Step {step['id']} → {status}")
 
-        results.append({
-            "step_id": step["id"],
-            "action": step["action"],
-            "status": status,
-            "condition": condition or "none"
-        })
+        results.append(
+            {
+                "step_id": step["id"],
+                "action": step["action"],
+                "status": status,
+                "condition": condition or "none",
+            }
+        )
 
-    logger.info(f"Playbook {playbook['name']} completed — {len(results)} steps processed")
+    logger.info(
+        f"Playbook {playbook['name']} completed — {len(results)} steps processed"
+    )
     return results

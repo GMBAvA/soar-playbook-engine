@@ -24,6 +24,6 @@ class JsonFormatter(logging.Formatter):
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "level": record.levelname,
             "module": record.name,
-            "message": record.getMessage()
+            "message": record.getMessage(),
         }
         return json.dumps(log_entry)

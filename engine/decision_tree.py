@@ -30,11 +30,17 @@ def evaluate_condition(condition: str, context: dict) -> bool:
             context_value = float(context_value)
             value = float(value)
 
-            if operator == ">":  return context_value > value
-            if operator == "<":  return context_value < value
-            if operator == "==": return context_value == value
-            if operator == "!=": return context_value != value
-            if operator == ">=": return context_value >= value
-            if operator == "<=": return context_value <= value
+            if operator == ">":
+                return context_value > value
+            if operator == "<":
+                return context_value < value
+            if operator == "==":
+                return context_value == value
+            if operator == "!=":
+                return context_value != value
+            if operator == ">=":
+                return context_value >= value
+            if operator == "<=":
+                return context_value <= value
 
     return False
