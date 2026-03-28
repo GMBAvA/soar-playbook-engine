@@ -1,0 +1,22 @@
+name: ransomware_response
+description: Emergency response playbook for ransomware
+trigger: ransomware_detected
+
+steps:
+  - id: step_1
+    action: isolate_host
+    description: Cut off network access to infected machine
+
+  - id: step_2
+    action: snapshot_memory
+    description: Capture memory for forensic analysis
+    condition: "host_isolated == True"
+
+  - id: step_3
+    action: escalate_p1
+    description: Trigger P1 incident and notify CISO
+    condition: "host_isolated == True"
+
+  - id: step_4
+    action: notify_soc
+    description: Full SOC team mobilization

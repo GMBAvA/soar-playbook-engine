@@ -1,0 +1,22 @@
+name: threat_intel_enrichment
+description: Enrich IOCs with threat intelligence data
+trigger: ioc_submitted
+
+steps:
+  - id: step_1
+    action: normalize_ioc
+    description: Standardize IOC format (IP, domain, hash)
+
+  - id: step_2
+    action: enrich_reputation
+    description: Query threat intel sources for reputation score
+    condition: "ioc_valid == True"
+
+  - id: step_3
+    action: update_siem
+    description: Push enriched data to SIEM
+    condition: "reputation_score > 40"
+
+  - id: step_4
+    action: generate_report
+    description: Create threat intelligence summary report

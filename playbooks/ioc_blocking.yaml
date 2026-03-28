@@ -1,0 +1,22 @@
+name: ioc_blocking
+description: Automatically block confirmed malicious IOCs
+trigger: ioc_confirmed_malicious
+
+steps:
+  - id: step_1
+    action: check_duplicates
+    description: Verify IOC is not already blocked
+
+  - id: step_2
+    action: apply_firewall_rule
+    description: Push blocking rule to firewall
+    condition: "duplicate == False"
+
+  - id: step_3
+    action: log_ioc
+    description: Register IOC in threat database
+    condition: "duplicate == False"
+
+  - id: step_4
+    action: notify_soc
+    description: Confirm blocking action to SOC team
