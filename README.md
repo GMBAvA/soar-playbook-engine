@@ -40,8 +40,6 @@ soar-playbook-engine/
 │ └── test_executor.py
 └── main.py
 
-text
-
 ---
 
 ## Getting Started
