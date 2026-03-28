@@ -6,7 +6,7 @@ that executes YAML-defined playbooks for automated incident response.
 
 Built as a personal cybersecurity project to demonstrate SOC automation skills,
 Python development and software quality practices.
-Powered by Claude Sonnet 4.6 Thinking
+Powered by Claude Sonnet 4.6 Thinking 🤔
 
 ---
 
