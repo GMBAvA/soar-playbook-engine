@@ -1,0 +1,22 @@
+name: phishing_response
+description: Automated response playbook for phishing alerts
+trigger: phishing_detected
+
+steps:
+  - id: step_1
+    action: extract_ioc
+    description: Extract malicious URL or sender from alert
+
+  - id: step_2
+    action: enrich_ioc
+    description: Check IOC reputation
+    condition: "ioc_found == True"
+
+  - id: step_3
+    action: block_sender
+    description: Block the malicious sender
+    condition: "ioc_score > 50"
+
+  - id: step_4
+    action: notify_soc
+    description: Send alert to SOC team
